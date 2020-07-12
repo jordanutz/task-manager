@@ -1,0 +1,92 @@
+/* Overwrite default AntD styles */
+
+.ant-layout-sider {
+   background: #f8f9fa !important;
+}
+.ant-layout-header {
+   background: #f8f9fa !important;
+}
+.ant-layout-sider-children {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+.ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left {
+   border-right: none;
+}
+.ant-menu {
+   background: none !important;
+}
+.ant-menu-item {
+   font-weight: 500;
+   font-size: .85rem;
+   display: flex !important;
+   justify-content: space-between;
+   height: 34px !important;
+}
+.ant-layout-content {
+   padding: 37px 50px;
+}
+.ant-progress-bg {
+   height: 20px !important;
+}
+.ant-progress-text {
+   font-weight: 600;
+}
+.ant-divider {
+   border-top: 1px solid #e2e8f0 !important;
+   color: #e2e8f0 !important;
+}
+.ant-card-body {
+   padding: 25px 15px !important;
+}
+.ant-card-head {
+   padding: 0 15px !important;
+}
+.ant-picker {
+   width: 100%;
+}
+.ant-card-head {
+   border-bottom: none;
+}
+.ant-card-head-title {
+   padding: 0.75rem 0;
+}
+.ant-card-body {
+   display: none;
+}
+.ant-card-bordered {
+   border: none !important;
+}
+.card__status {
+   width: 10px;
+   height: 10px;
+   position: absolute;
+   border-radius: 0.125rem;
+   left: -15px;
+   top: 50%;
+   transform: translateY(-50%);
+}
+.ant-picker-suffix {
+   display: flex;
+}
+.ant-progress-inner {
+   border-radius: 0.125rem !important;
+   background-color: #EDF2F7 !important;
+}
+.ant-progress-success-bg, .ant-progress-bg {
+   border-radius: 0.125rem !important;
+}
+.ant-layout-footer {
+   padding: 0 !important;
+}
+.ant-divider-horizontal {
+   margin: 20px 0 !important;
+}
+.ant-layout {
+   background: none !important;
+}
+.ant-menu-inline {
+   padding: 0 !important;
+}

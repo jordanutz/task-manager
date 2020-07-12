@@ -1,0 +1,1 @@
+SELECT * FROM tasks WHERE date_created = $1;
