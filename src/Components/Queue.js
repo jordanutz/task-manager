@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 
 import { Layout, Menu, Progress, Divider, DatePicker } from 'antd';
 const { Sider } = Layout;
@@ -7,7 +7,7 @@ const { SubMenu } = Menu;
 export const Queue = ({tasks, statusCodes, setTime, currentDate}) => {
 
    const [collapsed] = useState(null);
-   
+
    return (
       <Sider
          className="border-r"

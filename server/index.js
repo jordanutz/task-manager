@@ -16,6 +16,7 @@ massive({
 
 const tasks = require('./controllers/tasks');
 app.get('/api/tasks', tasks.getTasks);
+app.post('/api/tasks', tasks.addTask);
 
 PORT = 5800;
 

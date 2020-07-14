@@ -9,5 +9,9 @@ module.exports = {
       // catch (err) {
       //    console.log(err);
       // }
+   }, 
+   addTask: async (req, res) => {
+      console.log('hit')
+      console.log(req.body)
    }
 }
