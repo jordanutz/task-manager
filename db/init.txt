@@ -25,16 +25,6 @@ INSERT INTO task_status
    ('Complete'),
    ('Overdue')
 
-
-CREATE TABLE task (
-   title varchar(256) not null, 
-   category_id integer references category(id),
-   date_created date not null,
-   deadline date not null,
-   status integer references task_status(id),
-   priority integer not null
-)
-
 INSERT INTO task 
    (title, category_id, date_created, deadline, status, priority)
    VALUES

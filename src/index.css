@@ -90,3 +90,7 @@
 .ant-menu-inline {
    padding: 0 !important;
 }
+.ant-form-item-control-input-content {
+   display: flex;
+   justify-content: flex-end;
+}
