@@ -1,11 +1,12 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
+import moment from 'moment';
 
 // Components
 import { Modal, Form, Input, DatePicker, Select, Layout, Row, Col, Button } from 'antd';
 import { FormInstance } from 'antd/lib/form';
 
-export const AddTask = ({visibility, setVisibility, addTask}) => {
+export const AddTask = ({visibility, setVisibility, setTasks}) => {
 
    const [componentSize] = useState('medium');
    const [formLayout] = useState('vertical');
@@ -23,13 +24,17 @@ export const AddTask = ({visibility, setVisibility, addTask}) => {
 
       let submittedTask = {
          title, 
-         date, 
+         date: moment(date).format('MM/DD/YYYY'), 
          category, 
          priority
       }
 
       axios.post('/api/tasks', submittedTask)
-      .then(res => console.log(res.data))
+      .then(res => {
+         setTasks(res.data)
+         setVisibility(!visibility);
+         formRef.current.resetFields();
+      })
       .catch(err => console.log(err))
    }
 
@@ -93,9 +98,9 @@ export const AddTask = ({visibility, setVisibility, addTask}) => {
                         <Select 
                            value={category}
                            onChange={value => setNewTask({...newTask, category: value})}>
-                           <Select.Option value="projects">Projects</Select.Option>
-                           <Select.Option value="work">Work</Select.Option>
-                           <Select.Option value="study">Study</Select.Option>
+                           <Select.Option value={1}>Projects</Select.Option>
+                           <Select.Option value={2}>Work</Select.Option>
+                           <Select.Option value={3}>Study</Select.Option>
                         </Select>
                      </Form.Item>
                   </Col>
@@ -109,11 +114,11 @@ export const AddTask = ({visibility, setVisibility, addTask}) => {
                         <Select 
                            value={priority}
                            onChange={value => setNewTask({...newTask, priority: value})}>
-                           <Select.Option value="1">1</Select.Option>
-                           <Select.Option value="2">2</Select.Option>
-                           <Select.Option value="3">3</Select.Option>
-                           <Select.Option value="4">4</Select.Option>
-                           <Select.Option value="5">5</Select.Option>
+                           <Select.Option value={1}>1</Select.Option>
+                           <Select.Option value={2}>2</Select.Option>
+                           <Select.Option value={3}>3</Select.Option>
+                           <Select.Option value={4}>4</Select.Option>
+                           <Select.Option value={5}>5</Select.Option>
                         </Select>
                      </Form.Item>
                   </Col>

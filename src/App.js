@@ -12,44 +12,18 @@ const { Header, Content } = Layout;
 
 function App() {
 
-  const currentDate = moment(new Date());
+  let currentDate = moment(new Date());
   const [time, setTime] = useState(null);
+  const [tasks, setTasks] = useState(null);
 
   useEffect(() => {
-    axios.get('/api/tasks')
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
-  }, [])
 
-  const tasks = [
-    {
-       id: 0,
-       title: 'Midnight Assassin Revisions',
-       description: 'Description', 
-       dateCreated: '', 
-       category: 'Work', 
-       status: 'In Progress',
-       deadline: ''
-    }, 
-    {
-       id: 1,
-       title: 'Title 2',
-       description: 'Description', 
-       dateCreated: '', 
-       category: 'Projects', 
-       status: 'new',
-       deadline: ''
-    }, 
-    {
-       id: 2,
-       title: 'Title 3',
-       description: 'Description', 
-       dateCreated: '', 
-       category: 'Study', 
-       status: 'complete',
-       deadline: ''
-    }, 
- ];
+    const selected = !time ? currentDate.format('MM/DD/YYYY') : time;
+
+    axios.get(`/api/tasks?date=${selected}`)
+    .then(res => setTasks(res.data))
+    .catch(err => console.log(err))
+  }, [currentDate, time])
 
   const statusCodes = {
     new: '#3a86ff',
@@ -64,6 +38,7 @@ function App() {
       <Layout className="h-full">
        <Queue 
         tasks={tasks}
+        setTasks={setTasks}
         statusCodes={statusCodes}
         setTime={setTime}
         currentDate={currentDate}

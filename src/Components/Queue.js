@@ -46,23 +46,23 @@ export const Queue = ({tasks, statusCodes, setTime, currentDate}) => {
          >
             <Menu.Item key="1" className="flex space-between">
                <span>Today</span>
-               <span className="text-white px-3 rounded-sm flex items-center" style={{backgroundColor: `${statusCodes['new']}` }}>{tasks.length}</span>
+               <span className="text-white px-3 rounded-sm flex items-center" style={{backgroundColor: `${statusCodes['new']}` }}>{tasks ? tasks.length : 0}</span>
             </Menu.Item>
             <Menu.Item key="2">
                <span>In Progress</span>
-               <span className="text-white px-3 rounded-sm flex items-center" style={{backgroundColor: `${statusCodes['inProgress']}` }}>{tasks.length}</span>
+               <span className="text-white px-3 rounded-sm flex items-center" style={{backgroundColor: `${statusCodes['inProgress']}` }}>{tasks ? tasks.length : 0}</span>
             </Menu.Item>
             <Menu.Item key="3">
                <span>Complete</span>
-               <span className="text-white px-3 rounded-sm flex items-center" style={{backgroundColor: `${statusCodes['complete']}` }}>{tasks.length}</span>
+               <span className="text-white px-3 rounded-sm flex items-center" style={{backgroundColor: `${statusCodes['complete']}` }}>{tasks ? tasks.length : 0}</span>
             </Menu.Item> 
             <Menu.Item key="4">
                <span>Upcoming</span>
-               <span className="text-white px-3 rounded-sm flex items-center" style={{backgroundColor: `${statusCodes['upcoming']}` }}>{tasks.length}</span>
+               <span className="text-white px-3 rounded-sm flex items-center" style={{backgroundColor: `${statusCodes['upcoming']}` }}>{tasks ? tasks.length : 0}</span>
             </Menu.Item> 
             <Menu.Item key="5">
                <span>Overdue</span>
-               <span className="text-white px-3 rounded-sm flex items-center" style={{backgroundColor: `${statusCodes['overdue']}` }}>{tasks.length}</span>
+               <span className="text-white px-3 rounded-sm flex items-center" style={{backgroundColor: `${statusCodes['overdue']}` }}>{tasks ? tasks.length : 0}</span>
             </Menu.Item> 
          <Divider />
          <SubMenu key="s1" title="Categories">

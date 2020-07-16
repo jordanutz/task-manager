@@ -6,20 +6,17 @@ import { Task } from './Task';
 import { AddTask } from './AddTask';
 import { List, Divider } from 'antd';
 
-export const Tasks = ({time, setTime, tasks, statusCodes, currentDate}) => {
+export const Tasks = ({time, setTasks, setTime, tasks, statusCodes, currentDate}) => {
 
    const [visibility, setVisibility] = useState(false);
-
-   const addTask = () => {
-      setVisibility(!visibility);
-   }
 
    return (
       <>
          <AddTask 
             visibility={visibility}
             setVisibility={setVisibility}
-            addTask={addTask}
+            setTasks={setTasks}
+
          />
          <TaskHeader 
             time={time}
@@ -30,7 +27,7 @@ export const Tasks = ({time, setTime, tasks, statusCodes, currentDate}) => {
             setVisibility={setVisibility}
          />
          <Divider />
-         <List
+         {tasks && <List
             grid={{ gutter: 8, column: 3 }}
             dataSource={tasks}
             renderItem={item => (
@@ -41,7 +38,7 @@ export const Tasks = ({time, setTime, tasks, statusCodes, currentDate}) => {
                   />
                </List.Item>
             )}
-         />
+         /> }
       </>
    )
 };

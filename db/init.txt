@@ -17,15 +17,17 @@ CREATE TABLE task (
    priority integer not null
 )
 
+SELECT * FROM task 
+JOIN status_id ON task.status_id = task_status.id
+WHERE DATE = $1
+
 INSERT INTO task_status
    (status)
    VALUES
    ('New'), 
-   ('Active'),
-   ('Complete'),
-   ('Overdue')
+   ('In Progress'),
+   ('Complete')
 
 INSERT INTO task 
    (title, category_id, date_created, deadline, status, priority)
    VALUES
-   ('The Midnight Assassin Revisions', 1, )
